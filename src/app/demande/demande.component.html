@@ -1,0 +1,131 @@
+<div class="card">
+    <h5>Interface d’Enregistrement des opérations des demande s</h5>
+    <!-- Bouton "Retour" vers la page de profil -->
+    <a [routerLink]="['/profile']" class="p-button-text">
+        <i class="pi pi-arrow-left"></i> Retour
+    </a>
+
+    <p-toast></p-toast>
+    <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedArticles()" [disabled]="!selectedArticles || !selectedArticles.length"></button>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+        </ng-template>
+    </p-toolbar>
+
+    <p-table
+        #dt
+        [value]="articles"
+        [rows]="10"
+        [paginator]="true"
+        [globalFilterFields]="['descriptionart', 'categor', 'inventoryStatus']"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [(selection)]="selectedArticles"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true"
+    >
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Manage OFFRES</h5>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+           
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Description article<p-sortIcon field="descriptionart"></p-sortIcon></th>
+                <th pSortableColumn="datepubart" style="min-width:5rem">Date publication offre <p-sortIcon field="datepubart"></p-sortIcon></th>
+                <th pSortableColumn="datefinart" style="min-width:5rem">Date fin offre <p-sortIcon field="datefinart"></p-sortIcon></th>
+                <th pSortableColumn="categor" style="min-width:15rem">Catégorie offre <p-sortIcon field="categor"></p-sortIcon></th>
+                <th pSortableColumn="inventoryStatus" style="min-width:5rem">Statut offre <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-article>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="article"></p-tableCheckbox>
+                </td>
+                <td>
+                    <img [src]="article.image" alt="assets" style="width: 50px; height: auto;">
+                </td>
+                <td>{{ article.descriptionart }}</td>
+                <td>{{ article.datepubart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.datefinart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.categor }}</td>
+                <td>
+                    <p-tag [value]="article.inventoryStatus" [severity]="getSeverity(article.inventoryStatus)"></p-tag>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editArticle(article)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteArticle(article)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">In total there are {{ articles ? articles.length : 0 }} articles.</div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="articleDialog" [style]="{ width: '400px' }" header="Article Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+        <!-- Autres détails de l'article -->
+        <div class="field">
+            <label for="descriptionart">Description offre</label>
+            <textarea id="descriptionart" pInputTextarea [(ngModel)]="article.descriptionart" required rows="5" cols="30"></textarea>
+            <small class="p-error" *ngIf="submitted && !article.descriptionart">Description est requise.</small>
+        </div>
+
+        <div class="field">
+            <label class="mb-3">Catégorie offre </label>
+            <div class="formgrid grid">
+                <div class="field col-12">
+                    <select class="form-select" [(ngModel)]="article.categor">
+                        <option value="Livres">Livres</option>
+                        <option value="Cartable">Cartable</option>
+                        <option value="Tablier">Tablier</option>
+                        <option value="Autre fourniture">Autre fourniture</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label for="datepubart">Date de Publication offre</label>
+            <input type="date" pInputText id="datepubart" [(ngModel)]="article.datepubart" required />
+            <small class="p-error" *ngIf="submitted && !article.datepubart">Date de publication est requise.</small>
+        </div>
+        <div class="field">
+            <label for="datefinart">Date de Fin offre</label>
+            <input type="date" pInputText id="datefinart" [(ngModel)]="article.datefinart" required />
+            <small class="p-error" *ngIf="submitted && !article.datefinart">Date de fin est requise.</small>
+        </div>
+        <div class="field">
+            <label for="inventoryStatus"> Status d'offre</label>
+            <p-dropdown [(ngModel)]="article.inventoryStatus" inputId="inventoryStatus" [options]="statuses">
+                <ng-template pTemplate="selectedItem">
+                    <p-tag *ngIf="article.inventoryStatus" [value]="article.inventoryStatus.toUpperCase()" [severity]="getSeverity(article.inventoryStatus.toUpperCase())"></p-tag>
+                </ng-template>
+                <ng-template let-option pTemplate="item">
+                    <p-tag [value]="option.label" [severity]="getSeverity(option.label)"></p-tag>
+                </ng-template>
+            </p-dropdown>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveArticle()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>

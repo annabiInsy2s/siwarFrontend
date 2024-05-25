@@ -1,0 +1,299 @@
+/* Style pour le menu principal */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Style pour les sélecteurs */
+.form-select {
+    width: 200px;
+    margin-left: 10px;
+}
+
+/* Style pour la section de recherche */
+
+/* Style pour la barre de navigation */
+.navbar {
+    background-color: #343a40; /* Couleur de fond de la barre de navigation */
+    padding: 10px 0; /* Espacement intérieur */
+}
+
+.navbar-brand {
+    font-size: 24px; /* Taille de la police du logo */
+    font-weight: bold; /* Poids de la police */
+    color: #fff; /* Couleur du texte */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff; /* Couleur du texte des liens */
+    font-size: 16px; /* Taille de la police des liens */
+    font-weight: bold; /* Poids de la police */
+}
+/* Style pour les éléments <h4> */
+h4 {
+    font-family: 'Arial', sans-serif;  /* Police de caractères */
+    font-size: 18px;                   /* Taille de police */
+    color: #333;                       /* Couleur du texte */
+    font-weight: bold;                 /* Gras */
+    text-align: center;                /* Alignement centré */
+    margin: 10px 0;                    /* Marge autour des éléments <h4> */
+    padding: 5px 0;                    /* Espacement intérieur */
+    border-bottom: 2px solid #ccc;     /* Ligne en bas */
+}
+
+/* Style pour les liens actifs */
+.navbar-nav .nav-item .nav-link.active {
+    color: #ffc107; /* Couleur du texte des liens actifs */
+}
+
+/* Style pour le bouton du menu déroulant */
+.navbar-toggler {
+    border: none; /* Supprime la bordure */
+    background-color: transparent; /* Fond transparent */
+    color: #fff; /* Couleur du bouton */
+}
+
+/* Style pour le bouton du menu déroulant au survol */
+.navbar-toggler:hover {
+    color: #ffc107; /* Couleur du bouton au survol */
+}
+
+/* Style pour le bouton du menu déroulant au focus */
+.navbar-toggler:focus {
+    outline: none; /* Supprime la bordure au focus */
+    box-shadow: none; /* Supprime l'ombre au focus */
+}
+
+/* Style pour le menu déroulant */
+.dropdown-menu {
+    background-color: #343a40; /* Couleur de fond du menu déroulant */
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff; /* Couleur du texte des éléments de menu */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ffc107; /* Couleur de fond des éléments de menu au survol */
+    color: hsl(210, 100%, 39%); /* Couleur du texte des éléments de menu au survol */
+}
+
+
+/* Ajout d'une icône pour le bouton de recherche */
+
+
+/* Style pour la barre de navigation inférieure */
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Style pour la section de recherche sur la barre de navigation inférieure */
+.header-main {
+    background-color: hwb(155 39% 25%);
+    border-bottom: 1px solid #ddd;
+
+   
+}
+
+.header-main .container-fluid {
+    padding: 10px 0;
+}
+
+/* Style pour les titres des sélecteurs */
+.nav-item .form-select {
+    margin-right: 10px;
+}
+
+/* Style pour la liste déroulante sur la barre de navigation inférieure */
+.dropdown-menu .dropdown-item {
+    color: #333;
+    font-weight: bold;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.panel {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.panel-heading {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* Style pour la barre de recherche */
+
+
+/* Style pour les liens dans la liste des produits */
+.prod-cat .list-group-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.prod-cat .list-group-item a:hover {
+    color: #007bff;
+}
+
+/* Style pour les sélecteurs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+/* Style pour les boutons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Style pour la pagination */
+.pagination {
+    margin: 0;
+}
+
+.pagination li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination li a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+}
+
+.pagination li a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+  
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.product-list .panel {
+    border: 1px solid rgb(18, 18, 18);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* Style pour les images des produits */
+.pro-img-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-img-box img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.pro-img-box:hover img {
+    transform: scale(1.05);
+}
+
+/* Style pour les boutons Voir les détails */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Style pour les titres des produits */
+.pro-title {
+    color: #333;
+    text-decoration: none;
+}
+
+.pro-title:hover {
+    color: #007bff;
+}
+/* Style pour la section de recherche */
+.search {
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center;
+    margin-top: 20px; /* Espacement par rapport au contenu précédent */
+}
+
+/* Style pour le champ de recherche */
+.search input[type="text"] {
+    width: 750px; /* Largeur du champ de recherche */
+    padding: 10px; /* Espacement interne */
+    border: none; /* Suppression de la bordure */
+    border-radius: 20px; /* Bordure arrondie */
+    outline: none; /* Suppression de la bordure bleue au focus */
+    font-size: 16px; /* Taille de la police */
+    background-color: hsl(175, 39%, 80%);
+}
+
+/* Style pour le bouton de recherche */
+.search button {
+    background-color: #007bff; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Suppression de la bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 20px; /* Bordure arrondie */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s; /* Transition en douceur pour la couleur de fond */
+}
+
+/* Style au survol du bouton de recherche */
+.search button:hover {
+    background-color: #0056b3; /* Changement de couleur de fond au survol */
+}

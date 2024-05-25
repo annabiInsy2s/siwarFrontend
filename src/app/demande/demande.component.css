@@ -1,0 +1,24 @@
+body {
+    font-family: var(--font-family);
+    font-weight: normal;
+    background: var(--surface-ground);
+    color: var(--text-color);
+    padding: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(30, 212, 212);
+}
+
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+ 
+   
+}
+h5 {
+    font-size: 1.2rem; /* Taille de la police */
+    color: #333; /* Couleur du texte */
+    text-align: center;
+}

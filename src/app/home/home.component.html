@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu avec Sous-Catégories et Boutons Radio</title>
+    <!-- Inclure les CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+    </style>
+</head>
+
+<body>
+    <header class="section-header">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">AWENI.COM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home" data-abc="true">VOIR LES OFFRES </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/menu" data-abc="true">MENU</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/demande">Demande</a></li>
+                                <li><a class="dropdown-item" href="/echange">Echange</a></li>
+                                <li><a class="dropdown-item" href="/dons">Dons</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login" data-abc="true">
+                                <i class="fa fa-user"></i> PROFILE
+ 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register" data-abc="true">S'INSCRIRE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+        
+    
+        <section class="header-main border-bottom bg-white">
+            <div class="container-fluid">
+                <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+                   
+                    <div class="search">
+                        <input type="text" placeholder="Rechercher...">
+                        <button>Rechercher</button>
+                    </div>
+                     
+                           
+                    
+                </div>
+            </div> 
+        </section>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-md-none d-md-flex" href="#">Fournitures</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tablier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cartable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">livres</a>
+                        </li>
+                        <li>
+                            <select class="form-select">
+                                <option value="#" selected disabled hidden>Autre fournitures</option>
+                                <option value="cahiers">Cahiers</option>
+                                <option value="calculatrices">Calculatrices</option>
+                                <option value="feuilles">Feuilles de papier</option>
+                                <option value="porte-documents">Porte-documents</option>
+                                <option value="autre">Autre.....</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <select class="form-select">
+                                <option value="#" selected disabled hidden>Catégorier articles</option>
+                                <option value="primaire">Primaire</option>
+                                <option value="college">Collège</option>
+                                <option value="lycee">Lycée</option>
+                                <option value="universitaires">Universitaires</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <select class="form-select">
+                                <option value="#" selected disabled hidden>Titre des livre</option>
+                                <option value="francais">Français</option>
+                                <option value="anglais">Anglais</option>
+                                <option value="mathematiques">Mathématiques</option>
+                                <option value="sciences">Sciences</option>
+                                <option value="histoire">Histoire</option>
+                                <option value="autre">Autre...</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <select class="form-select">
+                                <option value="ville" selected disabled hidden>Sélectionner une ville</option>
+                                <option value="#">Ariana</option>
+                                <option value="#">Béja</option>
+                                <option value="#">Ben Arous</option>
+                                <option value="#">Bizerte</option>
+                                <option value="#">Gabès</option>
+                                <option value="#">Gafsa</option>
+                                <option value="#">Jendouba</option>
+                                <option value="#">Kairouan</option>
+                                <option value="#">Kasserine</option>
+                                <option value="#">Kebili</option>
+                                <option value="#">Kef</option>
+                                <option value="#">Mahdia</option>
+                                <option value="#">Manouba</option>
+                                <option value="#">Medenine</option>
+                                <option value="#">Monastir</option>
+                                <option value="#">Nabeul</option>
+                                <option value="#">Sfax</option>
+                                <option value="#">Sidi Bouzid</option>
+                                <option value="#">Siliana</option>
+                                <option value="#">Sousse</option>
+                                <option value="#">Tataouine</option>
+                                <option value="#">Tozeur</option>
+                                <option value="#">Tunis</option>
+                                <option value="#">Zaghouan</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+ 
+    <body>
+        <div class="container bootdey">
+            <div class="row">
+                <div class="col-md-3">
+                    <section class="panel">
+                       
+                    </section>
+                    <section class="panel">
+                        <header class="panel-heading">Articles</header>
+                        <div class="panel-body">
+                            <ul class="nav flex-column prod-cat list-group">
+                                <li class="list-group-item">
+                                    <a href="#"><i class="fa fa-book"></i> Des livres</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#"><i class="fa fa-briefcase"></i> Des cartables</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#"><i class="fa "></i> Des tabliers</a>
+
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#"><i class="fa fa-folder"></i> Autre fourniture</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <header class="panel-heading">Sous catégories</header>
+                    </section>
+                    <section class="panel">
+                        <header class="panel-heading">Filter</header>
+                        <div class="panel-body">
+                            <form role="form product-form">
+                                <div class="form-group">
+                                    <label>Niveau d'étude</label>
+                                    <select class="form-control">
+                                        <option value="#" selected disabled hidden>Niveau d'étude</option>
+                                        <option>primaire</option>
+                                        <option>collège</option>
+                                        <option>lycée</option>
+                                        <option>universitaire</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ville</label>
+                
+                                    <select class="form-control">
+                                        <option value="#" selected disabled hidden>les ville</option>
+                                        <option>Ariana</option>
+                                        <option>Béja</option>
+                                        <option>Ben Arous</option>
+                                        <option>Bizerte</option>
+                                        <option>Gabès</option>
+                                        <option>Gafsa</option>
+                                        <option>Jendouba</option>
+                                        <option>Kairouan</option>
+                                        <option>Kasserine</option>
+                                        <option>Kebili</option>
+                                        <option>Kef</option>
+                                        <option>Mahdia</option>
+                                        <option>Manouba</option>
+                                        <option>Medenine</option>
+                                        <option>Monastir</option>
+                                        <option>Nabeul</option>
+                                        <option>Sfax</option>
+                                        <option>Sidi Bouzid</option>
+                                        <option>Siliana</option>
+                                        <option>Sousse</option>
+                                        <option>Tataouine</option>
+                                        <option>Tozeur</option>
+                                        <option>Tunis</option>
+                                        <option>Zaghouan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Catégorie</label>
+                                    <select class="form-control">
+                                        <option value="#" selected disabled hidden>Catégorie </option>
+                                        <option>6ème année</option>
+                                        <option>5ème année</option>
+                                        <option>primaire année</option>
+                                        <option>2ème année</option>
+                                        <option>9ème année</option>
+                                        <option>4ème année</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>titre de livre</label>
+                                    <select class="form-select">
+                                        <option value="#" selected disabled hidden>Titre des livre</option>
+                                        <option value="francais">Français</option>
+                                        <option value="anglais">Anglais</option>
+                                        <option value="mathematiques">Mathématiques</option>
+                                        <option value="sciences">Sciences</option>
+                                        <option value="histoire">Histoire</option>
+                                        <option value="autre">Autre...</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Filter</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="pull-right">
+                                <ul class="pagination pagination-sm pro-page-list">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="container">
+                        <div class="row product-list">
+                            <!-- Produit 1 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Livre Français 4ème année</h4>
+                                        <img src="assets/imagefrancais4a.jpg" alt="Livre Français 4ème année">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Recherche d'échange des Livres 4ème année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 2 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Livre Histoire 3ème année</h4>
+                                        <img src="assets/imagelivrehistoire3ene.jpg" alt="Livre Histoire 3ème année">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Demande de livre Histoire 3ème année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 3 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Cartable</h4>
+                                        <img src="assets/sacadofeme.jpg" alt="Sac à Dos Femme">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Recherche de cet article à proximité du centre-ville de Sousse, contactez 2355555</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 4 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Livre Français 3ème année</h4>
+                                        <img src="assets/imagefrancai3an.jpg" alt="Livre Français 3ème année">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Don d'un Livre Français 3ème année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 5 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Tablier Enfant Primaire</h4>
+                                        <img src="assets/tablierenfantpremaire.jpg" alt="Tablier Enfant Primaire">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Tablier Enfant Primaire à Sousse, contactez pour don ou demande</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 6 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Cartable de Collège</h4>
+                                        <img src="assets/cartablecollege.jpg" alt="Cartable de Collège">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Cartable de Collège</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 7 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Papier Ram</h4>
+                                        <img src="assets/papierram.jpg" alt="Papier Ram">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Papier Ram</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 8 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Sac à Dos Femme</h4>
+                                        <img src="assets/sacadofeme.jpg" alt="Sac à Dos Femme">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Recherche de cet article, Sac à Dos pour fille de 4ème année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 9 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Livre Anglais 1ère année</h4>
+                                        <img src="assets/livreanglch.jpg" alt="Livre Anglais 1ère année">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Recherche d'échange d'un Livre Anglais de niveau 1ère année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                    
+                            <!-- Produit 10 -->
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <h4>Offre de don de Livres Anglais 1ère année</h4>
+                                        <img src="assets/livreanglch.jpg" alt="Livre Anglais 1ère année">
+                                        <button class="btn btn-primary">Voir les détails</button>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4><a href="#" class="pro-title">Offre de dons de Livre Anglais 1ère année</a></h4>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Search Bar Styling</title>
+                        <style>
+                            /* Style pour la section de recherche */
+                            .search {
+                                display: flex;
+                                justify-content: center; /* Centrage horizontal */
+                                align-items: center;
+                                margin-top: 20px; /* Espacement par rapport au contenu précédent */
+                            }
+                    
+                            /* Style pour le champ de recherche */
+                            .search input[type="text"] {
+                                width: 250px; /* Largeur du champ de recherche */
+                                padding: 10px; /* Espacement interne */
+                                border: none; /* Suppression de la bordure */
+                                border-radius: 20px; /* Bordure arrondie */
+                                outline: none; /* Suppression de la bordure bleue au focus */
+                                font-size: 16px; /* Taille de la police */
+                            }
+                    
+                            /* Style pour le bouton de recherche */
+                            .search button {
+                                background-color: #007bff; /* Couleur de fond */
+                                color: #fff; /* Couleur du texte */
+                                border: none; /* Suppression de la bordure */
+                                padding: 10px 20px; /* Espacement interne */
+                                border-radius: 20px; /* Bordure arrondie */
+                                cursor: pointer; /* Curseur pointeur */
+                                transition: background-color 0.3s; /* Transition en douceur pour la couleur de fond */
+                            }
+                    
+                            /* Style au survol du bouton de recherche */
+                            .search button:hover {
+                                background-color: #0056b3; /* Changement de couleur de fond au survol */
+                            }
+                        </style>
+                    </head>
+                    <body>
+                      
+                            <style>
+                                /* Style général pour le footer */
+                                .footer {
+                                    background-color: rgb(113, 113, 106);
+                                    color: hwb(0 0% 100%);
+                                    padding: 40px 0;
+                                    font-family: Arial, sans-serif;
+                                    width: 1200px;
+
+                                }
+                        
+                                .footer .container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-wrap: wrap;
+                                }
+                        
+                                .footer .footer-section {
+                                    flex: 1;
+                                    margin: 20px;
+                                }
+                        
+                                .footer h3 {
+                                    font-size: 18px;
+                                    margin-bottom: 20px;
+                                }
+                        
+                                .footer p, .footer a {
+                                    font-size: 14px;
+                                    color: #bbb;
+                                    text-decoration: none;
+                                }
+                        
+                                .footer a:hover {
+                                    color: #000000;
+                                }
+                        
+                                .footer .social-icons a {
+                                    display: inline-block;
+                                    margin-right: 10px;
+                                    color: #bbb;
+                                    font-size: 18px;
+                                }
+                        
+                                .footer .social-icons a:hover {
+                                    color: hsl(0, 0%, 2%);
+                                }
+                        
+                                .footer .footer-bottom {
+                                    text-align: center;
+                                    padding-top: 20px;
+                                    border-top: 1px solid rgb(225, 225, 225);
+                                    margin-top: 20px;
+                                }
+                            </style>
+                   
+               
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="footer-section">
+                                        <h3>À propos de nous</h3>
+                                        <p>AWENI.COM est une plateforme dédiée à l'échange d'articles entre utilisateurs. Notre mission est de faciliter le partage et le recyclage des biens, en offrant une alternative durable à la consommation traditionnelle.</p>
+                                    </div>
+                                    <div class="footer-section">
+                                        <h3>Contactez-nous</h3>
+                                        <p>Email: contact@aweni.com</p>
+                                        <p>Téléphone: +33 1 23 45 67 89</p>
+                                        <p>Adresse: 123 Rue Exemple, Paris, France</p>
+                                    </div>
+                                    <div class="footer-section">
+                                        <h3>Liens utiles</h3>
+                                        <p><a href="/home">Accueil</a></p>
+                                        <p><a href="/about">À propos</a></p>
+                                        <p><a href="/services">Services</a></p>
+                                        <p><a href="/contact">Contact</a></p>
+                                    </div>
+                                    <div class="footer-section">
+                                        <h3>Suivez-nous</h3>
+                                        <div class="social-icons">
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-bottom">
+                                    <p>&copy; 2024 AWENI.COM. Tous droits réservés.</p>
+                                </div>
+                            </footer>
+                        
+                            <!-- Lien vers Font Awesome pour les icônes de réseaux sociaux -->
+                            <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+                        
+                        </body>
+                        </html>
+                        

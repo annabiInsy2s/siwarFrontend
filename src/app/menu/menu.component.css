@@ -1,0 +1,165 @@
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header .logo a {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #232231;
+}
+
+/* Main Content */
+.main-content {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-section {
+    background-image: url('assets/siwar.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 20px;
+}
+
+.centered {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.centered h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.centered p {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: hwb(0 100% 0%);
+    width: 0px;
+}
+
+.btn-discover {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-discover:hover {
+    background-color: #0056b3;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+    margin: 20px 0;
+}
+
+.our-services {
+    padding: 20px;
+    text-align: left;
+}
+
+.our-services .icon img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.our-services h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.our-services p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.learn-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.learn-more:hover {
+    color: #0056b3;
+}
+
+/* Footer */
+.footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}

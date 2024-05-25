@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWENI.COM - Plateforme d'Échange Scolaire</title>
+    <link rel="stylesheet" href="menu.component.css"> <!-- Ajout du fichier de styles -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#" [routerLink]="['/menu']">AWENI.COM</a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#" [routerLink]="['/echange']">Contact</a></li>
+                    <li><a href="#" [routerLink]="['/home']">Voir les annonces</a></li>
+                    <li><a href="#" [routerLink]="['/login']">Connexion</a></li>
+                    <li><a href="#" [routerLink]="['/register']">S'inscrire</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="centered">
+                
+                <h1>AWENI.COM</h1>
+                <p>Partager et réutiliser vos fournitures scolaires !</p>
+                <button class="btn-discover">Découvrir</button>
+            </div>
+        </section>
+
+        <section class="cards-container">
+            <div class="card">
+                <div class="our-services">
+                    <div class="icon"><img src="assets/icon.jpg" alt="Icone d'échange"></div>
+                    <h4>Créer une offre d'échange</h4>
+                    <p>Sur Aweni.com, les utilisateurs peuvent échanger des fournitures scolaires telles que des livres, des cahiers, des stylos et des calculatrices avec d'autres membres.</p>
+                    <a href="/login" class="learn-more">En savoir plus</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="our-services">
+                    <div class="icon"><img src="assets/demande.jpg" alt="Icone de demande"></div>
+                    <h4>Créer une offre de demande</h4>
+                    <p>Sur Aweni.com, les utilisateurs peuvent accéder à la section de demande d'articles pour exprimer leurs besoins spécifiques en matière de fournitures scolaires.</p>
+                    <a href="/login" class="learn-more">En savoir plus</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="our-services">
+                    <div class="icon"><img src="assets/dons.jpg" alt="Icone de dons"></div>
+                    <h4>Créer une offre de dons</h4>
+                    <p>Sur Aweni.com, les utilisateurs peuvent également participer à la section des dons d'articles, où ils peuvent donner une nouvelle vie à des fournitures scolaires dont ils n'ont plus besoin.</p>
+                    <a href="/login" class="learn-more">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 AWENI.COM. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
