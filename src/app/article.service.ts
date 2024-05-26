@@ -11,6 +11,7 @@ export class ArticleService {
             {
                 id: '1',
                 descriptionart: "Salut, je cherche à recevoir ce livre en don dans le sud de Sfax. C'est très urgent et il doit être en bon état et fonctionnel. Pour me contacter : 333333",
+                proposition: "Salut, je cherche à recevoir ce livre en don dans le sud de Sfax. C'est très urgent et il doit être en bon état et fonctionnel. Pour me contacter : 333333",
                 categor: 'livres ',
                 datepubart: new Date("02/07/2024"),
                 datefinart: new Date("02/08/2024"),

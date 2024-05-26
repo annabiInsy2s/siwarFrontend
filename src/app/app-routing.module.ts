@@ -16,23 +16,38 @@ import { HomeComponent } from './home/home.component';
 import { ProfiledonsComponent } from './profiledons/profiledons.component';
 import { DonsComponent } from './dons/dons.component';
 import { DetailleComponent } from './detaille/detaille.component';
+import { AuthGuard } from './app.guard';
 
 const routes: Routes = [ 
-  { path: '', component: LoginComponent },
-  { path: 'Dons', component: DonsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'Dons', component: DonsComponent
 
-  { path: 'Detaille', component: DetailleComponent },
+   },
+
+  { path: 'Detaille', component: DetailleComponent ,  canActivate: [AuthGuard],
+},
   { path: 'resetpassword', component: ResetpasswordComponent },
-  { path: 'Profiledons', component: ProfiledonsComponent },
-  { path: 'echange', component: EchangeComponent },
-  { path: 'home', component: HomeComponent }, // Correction de la route pour échange
-  { path: 'profile', component: ProfileComponent }, // Correction de la route pour profil
+  { path: 'Profiledons', component: ProfiledonsComponent,  canActivate: [AuthGuard],
+},
+  { path: 'echange', component: EchangeComponent ,  canActivate: [AuthGuard],
+},
+  { path: 'home', component: HomeComponent,
+  canActivate: [AuthGuard],
+
+   }, // Correction de la route pour échange
+  { path: 'profile', component: ProfileComponent ,  canActivate: [AuthGuard],
+}, // Correction de la route pour profil
   { path: 'register', component: RegisterComponent },
-  { path: 'demande', component: DemandeComponent }, // Correction de la route pour demande
-  { path: 'users', component: UsersComponent },
-  { path: 'menu', component: MenuComponent },
-  { path: 'adduser', component: AddUserComponent },
-  { path: 'confirmation-dialog', component: ConfirmationDialogComponent },
+  { path: 'demande', component: DemandeComponent ,  canActivate: [AuthGuard],
+}, // Correction de la route pour demande
+  { path: 'users', component: UsersComponent,  canActivate: [AuthGuard],
+},
+  { path: '', component: MenuComponent ,
+},
+  { path: 'adduser', component: AddUserComponent ,  canActivate: [AuthGuard],
+},
+  { path: 'confirmation-dialog', component: ConfirmationDialogComponent,  canActivate: [AuthGuard],
+},
 // Correction de la route pour table-products-demo
 ];
 

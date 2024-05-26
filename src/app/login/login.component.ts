@@ -2,7 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../auth.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -50,15 +52,29 @@ throw new Error('Method not implemented.');
     const password = this.loginForm.get('password')?.value;
     this.authservice.signInUser(email, password).then(
       () => {
-        this.router.navigate(['/users']);
+        this.router.navigate(['/home']);
       },
       (error) => {
         this.errorMessage = error
+        Swal.fire({
+          title: 'Erreur!',
+          text: 'Invalide Identifiant ou Mot de passe.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        }); 
       }
     )
   }
+  forgetPassword()
+  {
+    this.router.navigate(['/resetpassword']);
 
+  }
+  register()
+  {
+    this.router.navigate(['/register']);
 
+  }
 
 
 }

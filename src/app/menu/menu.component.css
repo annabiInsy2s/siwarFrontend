@@ -36,7 +36,7 @@ a {
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 .navbar ul {

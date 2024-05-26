@@ -7,33 +7,42 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account !</h1>
                         </div>
-                        <form (ngSubmit)="saveUser()">
+                        <form (ngSubmit)="saveUser()" [formGroup]="myForm">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstname">
+                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstname" name="firstname">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastname">
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastname" name="lastname">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Email Address" formControlName="email">
+                                <input type="email" class="form-control" id="email" placeholder="Email Address" formControlName="email" name="email">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" name="password">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
+                                    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password" name="repeatPassword">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="address" placeholder="Address">
+                                <input type="text" class="form-control" id="address" placeholder="Address" name="address">
                             </div>
                           
                             <div class="form-group">
-                                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phoneNumber">
                             </div>
+                            <div class="form-group">
+                                <select class="form-control" id="role" (change)="onRoleChange($event)">
+                                  <option value="" disabled selected>Select a Role</option>
+                                  <option *ngFor="let role of roles" [value]="role.id">
+                                    {{ role.name }}
+                                  </option>
+                                </select>
+                              </div>
+                              
                             <div class="form-group">
                                 <select class="form-control" id="city">
                                     <option value="" disabled selected>Select ville </option>

@@ -53,6 +53,9 @@ import { ArticleService } from './article.service';
 import { DonsComponent } from './dons/dons.component';
 import { ProfiledonsComponent } from './profiledons/profiledons.component';
 import { DetailleComponent } from './detaille/detaille.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ProfileComponenetComponent } from './profile-componenet/profile-componenet.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,8 @@ import { DetailleComponent } from './detaille/detaille.component';
     DonsComponent,
     ProfiledonsComponent,
     DetailleComponent,
+    ProfileComponenetComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -80,24 +85,21 @@ import { DetailleComponent } from './detaille/detaille.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatDialogModule,
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     TableModule,
-    ToolbarModule,
     ToastModule,
     TagModule,
     RatingModule,
     DialogModule,
     ConfirmDialogModule,
     DropdownModule,
-    RadioButtonModule,
-    InputNumberModule,
+    ToolbarModule,
     FileUploadModule,
     GalleriaModule,
     MultiSelectModule,
@@ -105,7 +107,12 @@ import { DetailleComponent } from './detaille/detaille.component';
     ScrollTopModule,
     ImageModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token'), // Function to retrieve the JWT token from local storage
+      },
+    }),
   ],
   providers: [
     ProductService,

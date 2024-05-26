@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +18,17 @@ export class HomeComponent implements OnInit {
   selectAll = false;
 products: any[]|undefined;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,private authservice: AuthService,private router: Router) {}
 
   ngOnInit() {
       this.productService.getProducts().then((data) => (this.products = data));
   }
+  logout(){
+    this.authservice.logout()
+    this.router.navigate(['/login']);
 
+
+  }
   onSelectAllChange(event: { checked: boolean; updateModel: (arg0: any[], arg1: any) => void; originalEvent: any; }) {
       this.selectedItems = event.checked ? [...this.items] : [];
       this.selectAll = event.checked;

@@ -1,37 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Profil utilisateur </title>
-    <link rel="stylesheet" href="profile.component.css"> <!-- Assurez-vous que 'styles.css' contient votre CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"> <!-- Pour les icônes -->
-</head>
+
 <body>
-    <input type="checkbox" id="menu-toggle">
-    <div class="sidebar">
+        <div class="sidebar">
         <div class="profile">
             <div class="profile-img bg-img" style="background-image: url('assets/profile.jpg')"></div>
-            <h4>David Green</h4>
+            <h4>{{fullname}}</h4>
         </div>
         <div class="side-menu">
             <ul>
-                <li><a href="#"><i class="las la-home"></i>Home</a></li>
-                <li><a href="/echange"><i class="las la-exchange-alt"></i>Crée un echange</a></li>
-                <li><a href="/demande"><i class="las la-pen"></i>Crée un demande</a></li>
+                <li><a href="home"><i class="las la-home"></i>Home</a></li>
+                <li><a (click)="mesDemandes()"><i class="las la-pen"></i>Mes demande</a></li>
 
-                <li><a href="/"><i class="las la-envelope"></i>Boîte de réception</a></li>
-                <li><a href="#"><i class="las la-tasks"></i>Notification</a></li>
-                <li><a href="#"><i class="las la-user"></i>Historique des operation</a></li>
-                <li><a href="/profile"><i class="las la-user"></i>Profile</a></li>
-                <li><a href="/menu" class="logout"><i class="las la-power-off"></i>Déconnexion</a></li>
+                <li><a (click)="mesechanges()"><i class="las la-exchange-alt"></i>Mes  echange</a></li>
+                <li><a (click)="mesedons()"><i class="las la-exchange-alt"></i>Mes  dons</a></li>
+
+                <!-- <li><a ><i class="las la-envelope"></i>Boîte de réception</a></li>
+             <li><a href="#"><i class="las la-tasks"></i>Notification</a></li> -->
+                <!-- <li><a ><i class="las la-user"></i>Historique des operation</a></li> --> 
+                <!-- <li><a href="/profile"><i class="las la-user"></i>Profile</a></li> -->
+                <li><a (click)="logout()" >Déconnexion</a></li>
             </ul>
         </div>
     </div>
     
     <div class="main-content">
         <header>
-            <div class="header-content">
+            <!-- <div class="header-content">
                 <label for="menu-toggle"><i class="las la-bars"></i></label>
                 <h1>Profil utilisateur</h1>
             </div>
@@ -44,15 +37,15 @@
                     <i class="las la-bell"></i>
                     <span class="notify">3</span>
                 </div>
-            </div>
+            </div> -->
         </header>
         
         <main>
             <div class="page-content">
-                <div class="page-header">
+                <!-- <div class="page-header">
                    
-                </div>
-                <div class="analytics">
+                </div> -->
+                <!-- <div class="analytics">
                     <div class="card">
                         <div class="card-header green">
                             <h2>10</h2>
@@ -104,78 +97,376 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="search-container">
                     <input type="text" placeholder="Search..." class="search-input">
-                    <button class="search-btn">Search</button><div class="card"></div></div>
+                    <button class="search-btn">Search</button></div>
     <p-toast></p-toast>
-    <p-table [value]="products" dataKey="id" editMode="row" [tableStyle]="{'min-width': '50rem'}">
+    <div class="card" *ngIf="demande">
+        <h5 class="m-0" style="text-align: center; font-weight: bold;">Interface d’Enregistrement des opérations des demandes</h5>
+    
+        <br>
+       
+        <button pButton pRipple label="Créer demande" icon="pi pi-plus" class="p-button-success mr-2"   style="width: 10%;" (click)="openNewDemande()"></button>
+
+        <!-- Bouton "Retour" vers la page de profil -->
+      
+    
+        <p-toast></p-toast>
+        
+    
+        <p-table
+            #dt
+            [value]="demandes"
+            [rows]="10"
+            [paginator]="true"
+            [globalFilterFields]="['descriptionart', 'categor', 'inventoryStatus']"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            [(selection)]="selectedArticles"
+            [rowHover]="true"
+            dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true"
+        >
+   
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 4rem">
+
+                        <p-tableHeaderCheckbox> </p-tableHeaderCheckbox>
+                    </th>
+               
+                    <th pSortableColumn="descriptionart" style="min-width:15rem">Description<p-sortIcon field="descriptionart"></p-sortIcon></th>
+    
+    
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-demand>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="demandeV"></p-tableCheckbox>
+                    </td>
+                    
+                    <td>{{ demand.description }}</td>
+    
+                  
+                   
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editArticle(article)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteArticle(article)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+          
+        </p-table>
+    </div>
+  
+    
+    <p-confirmDialog></p-confirmDialog>
+    
+
+
+
+
+
+
+<div class="card" *ngIf="echange">
+    <h5 class="m-0" style="text-align: center; font-weight: bold;">Interface d’Enregistrement des opérations des échanges</h5>
+
+    <br>
+   
+    <button pButton pRipple label="Créer  échange" icon="pi pi-plus" class="p-button-success mr-2"   style="width: 10%;" (click)="openNew()"></button>
+
+    <!-- Bouton "Retour" vers la page de profil -->
+  
+
+    <p-toast></p-toast>
+    
+
+    <p-table
+        #dt
+        [value]="articles"
+        [rows]="10"
+        [paginator]="true"
+        [globalFilterFields]="['descriptionart', 'categor', 'inventoryStatus']"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [(selection)]="selectedArticles"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true"
+    >
+
+
         <ng-template pTemplate="header">
             <tr>
-                <th style="width:20%">Numéro article</th>
-                <th style="width:20%">Nom article </th>
-                <th style="width:20%">Etat offre </th>
-                <th style="width:20%">Type offre</th>
-             
+                <th style="width: 4rem">
 
+                    <p-tableHeaderCheckbox> </p-tableHeaderCheckbox>
+                </th>
+           
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Image d'article<p-sortIcon field="descriptionart"></p-sortIcon></th>
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Nom article <p-sortIcon field="descriptionart"></p-sortIcon></th>
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Proposition d'echange <p-sortIcon field="descriptionart"></p-sortIcon></th>
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Description d'article <p-sortIcon field="descriptionart"></p-sortIcon></th>
+                <th pSortableColumn="datepubart" style="min-width:5rem">Date publication d'article <p-sortIcon field="datepubart"></p-sortIcon></th>
+                <th pSortableColumn="datefinart" style="min-width:5rem">Date fin d'article <p-sortIcon field="datefinart"></p-sortIcon></th>
+                <th pSortableColumn="categor" style="min-width:15rem"> Article <p-sortIcon field="categor"></p-sortIcon></th>
+                <th pSortableColumn="inventoryStatus" style="min-width:5rem">Statut  <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                <th>Actions</th>
             </tr>
         </ng-template>
-                                  
-        <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
-            <tr [pEditableRow]="product">
+        <ng-template pTemplate="body" let-article>
+            <tr>
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="product.code">
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{product.code}}
-                        </ng-template>
-                    </p-cellEditor>
+                    <p-tableCheckbox [value]="article"></p-tableCheckbox>
                 </td>
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="product.name" required>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{product.name}}
-                        </ng-template>
-                    </p-cellEditor>
+                    <img [src]="article.image" alt="assets" style="width: 50px; height: auto;">
                 </td>
-                                     
-        <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
-            <tr [pEditableRow]="product">
+                <td>{{ article.name }}</td>
+                <td>{{ article.proposition }}</td>
+                <td>{{ article.descriptionart }}</td>
+
+                <td>{{ article.datepubart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.datefinart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.categor }}</td>
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="product.Typeoffre">
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{product.Typeoffre}}
-                        </ng-template>
-                    </p-cellEditor>
+                    <p-tag [value]="article.inventoryStatus" [severity]="getSeverity(article.inventoryStatus)"></p-tag>
                 </td>
-            </tr></ng-template>
                 <td>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <p-dropdown [options]="statuses" appendTo="body" [(ngModel)]="product.inventoryStatus" [style]="{'width':'100%'}"></p-dropdown>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{product.inventoryStatus}}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
-                <td>      
-                    <div class="flex align-items-center justify-content-center gap-2">
-                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(product)" class="p-button-rounded p-button-text"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(product)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(product, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
-                    </div>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editArticle(article)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteArticle(article)"></button>
                 </td>
             </tr>
         </ng-template>
+      
     </p-table>
 </div>
-                  
+
+
+
+<p-confirmDialog></p-confirmDialog>
+
+
+
+
+
+<div class="card" *ngIf="dons">
+    <h5 class="m-0" style="text-align: center; font-weight: bold;">Interface d’Enregistrement des opérations des dons</h5>
+
+    <br>
+   
+    <button pButton pRipple label="Créer  dons" icon="pi pi-plus" class="p-button-success mr-2"   style="width: 10%;" (click)="openNewDons()"></button>
+
+    <!-- Bouton "Retour" vers la page de profil -->
+  
+
+    <p-toast></p-toast>
+    
+
+    <p-table
+        #dt
+        [value]="donsList"
+        [rows]="10"
+        [paginator]="true"
+        [globalFilterFields]="['descriptionart', 'categor', 'inventoryStatus']"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [(selection)]="selectedArticles"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true"
+    >
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+
+                    <p-tableHeaderCheckbox> </p-tableHeaderCheckbox>
+                </th>
+           
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Image dons<p-sortIcon field="descriptionart"></p-sortIcon></th>
+
+                <th pSortableColumn="descriptionart" style="min-width:15rem">Description d'article <p-sortIcon field="descriptionart"></p-sortIcon></th>
+
+                <th pSortableColumn="datepubart" style="min-width:5rem">Date publication d'article <p-sortIcon field="datepubart"></p-sortIcon></th>
+                <th pSortableColumn="datefinart" style="min-width:5rem">Date fin d'article <p-sortIcon field="datefinart"></p-sortIcon></th>
+                <th pSortableColumn="categor" style="min-width:15rem"> Article <p-sortIcon field="categor"></p-sortIcon></th>
+                <th pSortableColumn="inventoryStatus" style="min-width:5rem">Statut  <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-article>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="article"></p-tableCheckbox>
+                </td>
+                <td>
+                    <img [src]="article.image" alt="assets" style="width: 50px; height: auto;">
+                </td>
+                <td>{{ article.descriptionart }}</td>
+
+                <td>{{ article.datepubart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.datefinart | date:'dd/MM/yyyy' }}</td>
+                <td>{{ article.categor }}</td>
+                <td>
+                    <p-tag [value]="article.inventoryStatus" [severity]="getSeverity(article.inventoryStatus)"></p-tag>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editArticle(article)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDons(article)"></button>
+                </td>
+            </tr>
+        </ng-template>
+      
+    </p-table>
+</div>
+
+
+
+
+<p-confirmDialog></p-confirmDialog>
+</div>
+
+
+
+<p-dialog [(visible)]="articleDialog" [style]="{ width: '30%' }" header="Créer un offert d'échange" [modal]="true" styleClass="p-fluid custom-dialog">
+    <ng-template pTemplate="content">
+        <!-- Autres détails de l'article -->
+        <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" [(ngModel)]="article.name"  class="form-control form-control-user" rows="5" cols="30">
+        </div>
+        <div class="field">
+            <label for="descriptionart">Description offre</label>
+            <textarea id="descriptionart" pInputTextarea [(ngModel)]="article.descriptionart"  class="form-control form-control-user" rows="5" cols="30"></textarea>
+        </div>
+        <div class="field">
+            <label for="proposition">Proposition des échanges</label>
+            <textarea id="proposition" pInputTextarea [(ngModel)]="article.proposition"  class="form-control form-control-user" rows="5" cols="30"></textarea>
+        </div>
+
+        <div class="field">
+            <label class="mb-3">Article</label>
+            <div class="formgrid grid">
+                <div class="field col-12">
+                    <select class="form-control form-control-user" [(ngModel)]="article.categor">
+                        <option value="Livres">Livres</option>
+                        <option value="Cartable">Cartable</option>
+                        <option value="Tablier">Tablier</option>
+                        <option value="Autre fourniture">Autre</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label for="datepubart">Date de Publication offre</label>
+            <input type="date" pInputText id="datepubart" [(ngModel)]="article.datepubart"  class="form-control form-control-user" />
+        </div>
+        <div class="field">
+            <label for="datefinart">Date de Fin offre</label>
+            <input type="date" pInputText id="datefinart" [(ngModel)]="article.datefinart"  class="form-control form-control-user" />
+        </div>
+        <div class="field">
+            <label for="inventoryStatus">Status d'offre</label>
+            <p-dropdown [(ngModel)]="article.inventoryStatus" inputId="inventoryStatus" [options]="statuses" class="form-control form-control-user">
+                <ng-template pTemplate="selectedItem">
+                    <p-tag *ngIf="article.inventoryStatus" [value]="article.inventoryStatus.toUpperCase()" [severity]="getSeverity(article.inventoryStatus.toUpperCase())"></p-tag>
+                </ng-template>
+                <ng-template let-option pTemplate="item">
+                    <p-tag [value]="option.label" [severity]="getSeverity(option.label)"></p-tag>
+                </ng-template>
+            </p-dropdown>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveArticle()"></button>
+    </ng-template>
+</p-dialog>
+
+
+
+
+<p-dialog [(visible)]="donsDialog" [style]="{ width: '30%' }" header="Créer un offert dons" [modal]="true" styleClass="p-fluid custom-dialog">
+    <ng-template pTemplate="content">
+        <!-- Autres détails de l'article -->
+        <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" [(ngModel)]="article.name"  class="form-control form-control-user" rows="5" cols="30">
+        </div>
+        <div class="field">
+            <label for="descriptionart">Description offre</label>
+            <textarea id="descriptionart" pInputTextarea [(ngModel)]="article.descriptionart"  class="form-control form-control-user" rows="5" cols="30"></textarea>
+        </div>
+        <div class="field">
+            <label for="proposition">Proposition des échanges</label>
+            <textarea id="proposition" pInputTextarea [(ngModel)]="article.proposition"  class="form-control form-control-user" rows="5" cols="30"></textarea>
+        </div>
+
+        <div class="field">
+            <label class="mb-3">Article</label>
+            <div class="formgrid grid">
+                <div class="field col-12">
+                    <select class="form-control form-control-user" [(ngModel)]="article.categor">
+                        <option value="Livres">Livres</option>
+                        <option value="Cartable">Cartable</option>
+                        <option value="Tablier">Tablier</option>
+                        <option value="Autre fourniture">Autre</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label for="datepubart">Date de Publication offre</label>
+            <input type="date" pInputText id="datepubart" [(ngModel)]="article.datepubart"  class="form-control form-control-user" />
+        </div>
+        <div class="field">
+            <label for="datefinart">Date de Fin offre</label>
+            <input type="date" pInputText id="datefinart" [(ngModel)]="article.datefinart"  class="form-control form-control-user" />
+        </div>
+        <div class="field">
+            <label for="inventoryStatus">Status d'offre</label>
+            <p-dropdown [(ngModel)]="article.inventoryStatus" inputId="inventoryStatus" [options]="statuses" class="form-control form-control-user">
+                <ng-template pTemplate="selectedItem">
+                    <p-tag *ngIf="article.inventoryStatus" [value]="article.inventoryStatus.toUpperCase()" [severity]="getSeverity(article.inventoryStatus.toUpperCase())"></p-tag>
+                </ng-template>
+                <ng-template let-option pTemplate="item">
+                    <p-tag [value]="option.label" [severity]="getSeverity(option.label)"></p-tag>
+                </ng-template>
+            </p-dropdown>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveArticle()"></button>
+    </ng-template>
+</p-dialog>
+
+
+
+
+
+
+
+
+
+<p-dialog [(visible)]="demandeDiag" [style]="{ width: '30%' }" header="Créer une demande" [modal]="true" styleClass="p-fluid custom-dialog">
+    <ng-template pTemplate="content">
+        <!-- Autres détails de l'article -->
+      
+        <div class="field">
+            <label for="descriptionart">Description Demande</label>
+            <textarea id="descriptionart" pInputTextarea [(ngModel)]="demandeV.description"  class="form-control form-control-user" rows="5" cols="30"></textarea>
+        </div>
+        
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveDemande()"></button>
+    </ng-template>
+</p-dialog>
